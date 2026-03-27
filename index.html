@@ -16,7 +16,65 @@
       <p>This example demonstrates the <b>getElementsById</b> method.</p>
 
       <p id="demo">asd</p>
+      <p id="keypressed">key pressed</p>
+
+      <button onclick="document.getElementById('text').innerHTML = Date()">
+        Show date
+      </button>
+      <button onclick="this.innerHTML = Date()">Own Change</button>
+      <button onclick="displayDate()">custom function</button>
+      <button id="myBtn">Click me Event listener</button>
+      <input id="k" type="text" placeholder="Press a key" />
+      <p id="clock"></p>
+      <!-- timeout -->
+      <p id="texttimeout"></p>
+      <button id="setTimeOut">setTimeOut</button>
     </div>
+    <script>
+      //settime out
+      const bt = document
+        .getElementById("setTimeOut")
+        .addEventListener("click", function () {
+          setTimeout(showTimeout, 2000);
+        });
+
+      function showTimeout() {
+        document.getElementById("texttimeout").innerHTML =
+          "Hello after 2 seconds.";
+      }
+    </script>
+
+    <script>
+      //set interval
+      setInterval(showTime, 1000);
+
+      function showTime() {
+        const d = new Date();
+        document.getElementById("clock").innerHTML =
+          d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+      }
+    </script>
+    <script>
+      const keyK = document.getElementById("k");
+      // let k listen for pressed key down
+      k.addEventListener("keydown", function (event) {
+        // display event.key
+        document.getElementById("keypressed").innerHTML =
+          "You pressed:" + event.key;
+      });
+    </script>
+    <script>
+      const btn = document.getElementById("myBtn");
+      //add event listner
+
+      btn.addEventListener("click", function () {
+        document.getElementById("demo").innerHTML = Date();
+      });
+
+      function displayDate() {
+        document.getElementById("intro").innerHTML = Date();
+      }
+    </script>
     <script src="trial.js"></script>
   </body>
 </html>
